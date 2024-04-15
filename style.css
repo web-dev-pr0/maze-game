@@ -1,0 +1,173 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap");
+
+/* Variables */
+:root {
+  --stroke-effect: -1px -1px 0 rgba(255, 255, 255, 0.3),
+    1px -1px 0 rgba(255, 255, 255, 0.3), -1px 1px 0 rgba(255, 255, 255, 0.3),
+    1px 1px 0 rgba(255, 255, 255, 0.3);
+  --color: #333333;
+  --background-color: #ffa500;
+  --font-family: "Caveat", cursive;
+}
+
+/* Default Styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  color: var(--color);
+  font-family: var(--font-family);
+  text-shadow: var(--stroke-effect);
+}
+
+button {
+  cursor: pointer;
+}
+
+h1,
+p {
+  margin: 0;
+  font-family: var(--font-family);
+  color: var(--color);
+  text-shadow: var(--stroke-effect);
+}
+
+/* Main Styles */
+.welcoming-con {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 3rem;
+  font-size: 2rem;
+  width: 30rem;
+  margin-inline: auto;
+}
+
+.welcoming-con p {
+  font-size: 2.25rem;
+}
+
+.welcoming-con > div {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+#start-btn {
+  width: 50%;
+  background-color: var(--background-color);
+  border: 1px solid var(--color);
+  text-shadow: var(--stroke-effect);
+  border-radius: 20px;
+  padding-block: 0.3em;
+  transition: all 0.15s;
+}
+
+#start-btn:hover {
+  background-color: var(--color);
+}
+
+#start-btn:active {
+  filter: brightness(130%);
+}
+
+#start-btn > a {
+  text-decoration: none;
+  color: var(--color);
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+#start-btn:hover a {
+  color: white;
+  text-shadow: none;
+}
+.welcoming-con select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  align-self: start;
+  color: #333333;
+  width: 50%;
+  background-color: var(--background-color);
+  border: 1px solid var(--color);
+  border-radius: 20px;
+  text-align: center;
+  font-family: var(--font-family);
+  font-size: 2rem;
+  font-weight: 700;
+  text-shadow: var(--stroke-effect);
+  cursor: pointer;
+}
+
+.welcoming-con select:focus {
+  outline: none;
+}
+
+.welcoming-con img {
+  margin-top: 2rem;
+}
+
+@media (max-width: 500px) {
+  .welcoming-con h1 {
+    font-size: 2.25rem;
+  }
+
+  .welcoming-con p {
+    font-size: 2.25rem;
+  }
+
+  .welcoming-con {
+    width: 100%;
+  }
+
+  .welcoming-con > div {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .welcoming-con select {
+    align-self: center;
+  }
+
+  .welcoming-con select option {
+    font-size: 1.25rem;
+  }
+}
+
+/* Game Page */
+.player-stats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.player-stats > p {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.player-stats > img {
+  width: 8rem;
+}
+
+/* Easy Maze */
+.maze-easy {
+    border: 1px solid black;
+    width: 30rem;
+    height: 30rem;
+    margin-inline: auto;
+}
