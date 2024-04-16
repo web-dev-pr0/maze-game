@@ -51,30 +51,30 @@ function update() {
 // End of Stopwatch
 
 // Creates the boxes inside the maze
-const mazeMedium = document.getElementById("maze-medium");
+const mazeHard = document.getElementById("maze-hard");
 
 // Maze Layout
-const mediumMaze = [
-  [0, 3, 0, 0, 0, 0, 0, 0, 1, 1],
-  [1, 0, 1, 1, 1, 1, 1, 0, 1, 1],
-  [1, 0, 1, 3, 1, 0, 0, 0, 0, 1],
-  [1, 0, 1, 0, 0, 3, 1, 1, 0, 1],
+const hardMaze = [
+  [0, 0, 0, 0, 0, 0, 0, 0, 1, 3],
+  [1, 0, 1, 1, 1, 0, 1, 0, 1, 0],
+  [1, 0, 1, 3, 1, 3, 1, 0, 0, 0],
+  [3, 0, 1, 0, 0, 0, 1, 1, 0, 1],
   [1, 0, 1, 1, 1, 1, 1, 0, 0, 1],
-  [1, 0, 1, 0, 0, 0, 0, 0, 1, 1],
-  [0, 0, 1, 0, 1, 1, 1, 1, 1, 1],
-  [0, 1, 1, 3, 1, 0, 0, 0, 0, 1],
-  [0, 1, 1, 0, 0, 0, 1, 1, 0, 1],
-  [0, 0, 3, 1, 1, 1, 1, 1, 0, 0],
+  [1, 0, 1, 0, 0, 3, 1, 0, 1, 1],
+  [0, 3, 1, 0, 1, 1, 1, 0, 1, 1],
+  [0, 1, 1, 3, 1, 0, 0, 0, 0, 3],
+  [0, 1, 1, 0, 0, 0, 1, 1, 1, 1],
+  [0, 0, 3, 1, 1, 3, 0, 0, 0, 0],
 ];
 
 // Default position of the cat
 let catPosition = { row: 0, col: 0 };
 
 // Creates each block inside the maze
-mediumMaze.forEach((row, rowIndex) => {
+hardMaze.forEach((row, rowIndex) => {
   row.forEach((value, colIndex) => {
     const box = document.createElement("div");
-    mazeMedium.appendChild(box);
+    mazeHard.appendChild(box);
 
     // Adds color to the boxes that you can't walk on
     if (value === 1) {
@@ -101,12 +101,12 @@ mediumMaze.forEach((row, rowIndex) => {
       box.style.backgroundSize = "cover";
     }
 
-    if (rowIndex === 2 && colIndex === 3) {
+    if (rowIndex === 3 && colIndex === 0) {
       box.style.background = "url(images/ball-of-yarn.png) center";
       box.style.backgroundSize = "cover";
     }
 
-    if (rowIndex === 0 && colIndex === 1) {
+    if (rowIndex === 6 && colIndex === 1) {
       box.style.background = "url(images/dead-fish.png) center";
       box.style.backgroundSize = "cover";
     }
@@ -116,8 +116,33 @@ mediumMaze.forEach((row, rowIndex) => {
       box.style.backgroundSize = "cover";
     }
 
-    if (rowIndex === 3 && colIndex === 5) {
+    if (rowIndex === 2 && colIndex === 3) {
+      box.style.background = "url(images/ball-of-yarn.png) center";
+      box.style.backgroundSize = "cover";
+    }
+
+    if (rowIndex === 2 && colIndex === 5) {
       box.style.background = "url(images/dead-fish.png) center";
+      box.style.backgroundSize = "cover";
+    }
+
+    if (rowIndex === 5 && colIndex === 5) {
+      box.style.background = "url(images/dead-fish.png) center";
+      box.style.backgroundSize = "cover";
+    }
+
+    if (rowIndex === 0 && colIndex === 9) {
+      box.style.background = "url(images/dead-fish.png) center";
+      box.style.backgroundSize = "cover";
+    }
+
+    if (rowIndex === 7 && colIndex === 9) {
+      box.style.background = "url(images/ball-of-yarn.png) center";
+      box.style.backgroundSize = "cover";
+    }
+
+    if (rowIndex === 9 && colIndex === 5) {
+      box.style.background = "url(images/ball-of-yarn.png) center";
       box.style.backgroundSize = "cover";
     }
   });
@@ -132,7 +157,7 @@ function moveUp() {
   start();
   if (
     catPosition.row > 0 &&
-    mediumMaze[catPosition.row - 1][catPosition.col] !== 1
+    hardMaze[catPosition.row - 1][catPosition.col] !== 1
   ) {
     catPosition.row--;
     updateCatPosition();
@@ -143,8 +168,8 @@ function moveDown() {
   start();
 
   if (
-    catPosition.row < mediumMaze.length - 1 &&
-    mediumMaze[catPosition.row + 1][catPosition.col] !== 1
+    catPosition.row < hardMaze.length - 1 &&
+    hardMaze[catPosition.row + 1][catPosition.col] !== 1
   ) {
     catPosition.row++;
     updateCatPosition();
@@ -155,8 +180,8 @@ function moveRight() {
   start();
 
   if (
-    catPosition.col < mediumMaze[0].length - 1 &&
-    mediumMaze[catPosition.row][catPosition.col + 1] !== 1
+    catPosition.col < hardMaze[0].length - 1 &&
+    hardMaze[catPosition.row][catPosition.col + 1] !== 1
   ) {
     catPosition.col++;
     updateCatPosition();
@@ -168,7 +193,7 @@ function moveLeft() {
 
   if (
     catPosition.col > 0 &&
-    mediumMaze[catPosition.row][catPosition.col - 1] !== 1
+    hardMaze[catPosition.row][catPosition.col - 1] !== 1
   ) {
     catPosition.col--;
     updateCatPosition();
@@ -192,10 +217,10 @@ function updateCatPosition() {
 
   // Get the new position element
   const newCatBox =
-  mazeMedium.children[catPosition.row * mediumMaze[0].length + catPosition.col];
+  mazeHard.children[catPosition.row * hardMaze[0].length + catPosition.col];
 
   // Check if the new position contains a collectible item
-  const newValue = mediumMaze[catPosition.row][catPosition.col];
+  const newValue = hardMaze[catPosition.row][catPosition.col];
   if (newValue === 3) {
     updateScore();
   }

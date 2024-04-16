@@ -58,13 +58,13 @@ const easyMaze = [
   [0, 0, 0, 0, 1, 1, 1, 1, 1, 1],
   [1, 0, 1, 0, 1, 1, 1, 0, 1, 1],
   [1, 0, 1, 0, 1, 0, 0, 0, 0, 1],
-  [1, 0, 1, 3, 0, 0, 1, 1, 3, 1], // Updated to include a dead fish (value 3) at (3, 8)
+  [1, 0, 1, 3, 0, 0, 1, 1, 3, 1],
   [1, 0, 1, 1, 1, 1, 1, 0, 0, 1],
   [1, 3, 1, 0, 0, 0, 0, 0, 1, 1],
   [1, 0, 1, 0, 1, 1, 1, 1, 1, 1],
   [1, 0, 1, 3, 1, 0, 0, 0, 0, 1],
   [1, 0, 1, 0, 0, 0, 1, 1, 0, 1],
-  [1, 0, 3, 1, 1, 1, 1, 1, 0, 0], // Updated to include a ball of yarn (value 2) at (9, 2)
+  [1, 0, 3, 1, 1, 1, 1, 1, 0, 0],
 ];
 
 // Default position of the cat
@@ -77,8 +77,7 @@ easyMaze.forEach((row, rowIndex) => {
     mazeEasy.appendChild(box);
 
     // Adds color to the boxes that you can't walk on
-    if (value === 0) {
-    } else if (value === 1) {
+    if (value === 1) {
       box.style.backgroundColor = "var(--maze-color)";
     }
 
@@ -90,6 +89,7 @@ easyMaze.forEach((row, rowIndex) => {
       catPosition.col = colIndex;
     }
 
+    // Adds the Final Cat Food
     if (rowIndex === 9 && colIndex === 9) {
       box.style.background = "url(images/cat-food.png) center";
       box.style.backgroundSize = "cover";
@@ -130,7 +130,6 @@ easyMaze.forEach((row, rowIndex) => {
 // End of Creating Boxes
 
 // Moves the player
-const catPlayer = document.getElementById("cat-player");
 let score = 0; // Initialize score
 
 function moveUp() {

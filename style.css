@@ -153,6 +153,7 @@ p {
   top: 30%;
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
 }
 
 .control {
@@ -176,32 +177,6 @@ p {
 .control:active {
   filter: brightness(75%);
 }
-
-/* Easy Maze */
-.maze-easy {
-  border: 2px solid var(--maze-color);
-  width: 30rem;
-  height: 30rem;
-  margin-inline: auto;
-  display: grid;
-  grid-template: repeat(10, 3rem) / repeat(10, 3rem);
-  position: relative;
-  overflow: hidden;
-}
-
-/* Cat Image Player*/
-#cat-player {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 50px;
-}
-
-.maze-easy > div {
-  width: 50px;
-  height: 50px;
-}
-
 
 /* END GAME */
 .end-game {
@@ -234,9 +209,16 @@ p {
   transition: all 0.15s;
 }
 
-
 /* Medium Maze */
-.maze-medium > div {
-  width: 30px;
-  height: 30px;
+.maze-medium,
+.maze-easy,
+.maze-hard {
+  border: 2px solid var(--maze-color);
+  width: 30rem;
+  height: 30rem;
+  margin-inline: auto;
+  display: grid;
+  grid-template: repeat(10, 3rem) / repeat(10, 3rem);
+  position: relative;
+  overflow: hidden;
 }
