@@ -1,3 +1,4 @@
+// Stopwatch
 const startBtn = document.getElementById("start");
 const stopBtn = document.getElementById("stop");
 const resetBtn = document.getElementById("reset");
@@ -30,7 +31,7 @@ function reset() {
   startTime = 0;
   elapsedTime = 0;
   isRunning = false;
-  timer.textContent = "00:00"
+  timer.textContent = "00:00";
 }
 
 function update() {
@@ -47,3 +48,7 @@ function update() {
 
   timer.textContent = `${minutes}:${seconds}`;
 }
+// End of Stopwatch
+
+// Creates the boxes inside the maze
+const mazeMedium = document.getElementById("maze-medium");

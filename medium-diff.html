@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Fontawesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Favicon -->
+    <link rel="icon" href="images/ginger-cat-favicon.ico" type="image/x-icon" />
+
+    <!-- CSS & JS -->
+    <link rel="stylesheet" href="style.css" />
+    <script src="medium-diff.js" defer></script>
+
+    <title>Cat Maze Game | Medium</title>
+  </head>
+  <body>
+    <!-- Player Stats -->
+    <div class="player-stats">
+      <p id="timer">00:00</p>
+      <img src="images/ginger-cat-face.png" alt="ginger cat face" />
+      <p id="score">000</p>
+    </div>
+
+    <!-- Controls -->
+    <div class="controls-con">
+      <div>
+        <button class="control ctrl-1" onclick="moveUp()">
+          Up<i class="fa-solid fa-arrow-up"></i>
+        </button>
+        <button class="control ctrl-3" onclick="moveRight()">
+          RIGHT<i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+      <div>
+        <button class="control ctrl-2" onclick="moveDown()">
+          DOWN<i class="fa-solid fa-arrow-down"></i>
+        </button>
+        <button class="control ctrl-4" onclick="moveLeft()">
+          LEFT<i class="fa-solid fa-arrow-left"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Maze -->
+    <div class="maze-medium" id="maze-medium"></div>
+
+    <!-- End Game Screen-->
+    <div class="end-game" id="end-game">
+      <p id="score-end"></p>
+      <p id="time-end"></p>
+      <button onclick="restartGame()">Play Again?</button>
+    </div>
+  </body>
+</html>

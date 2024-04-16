@@ -20,14 +20,17 @@
         <p>Welcome to</p>
         <h1>Cat Maze Game</h1>
         <div>
-          <select>
-            <option value="easy">Easy</option>
-            <option value="medium">Medium</option>
-            <option value="hard">Hard</option>
-          </select>
-          <button id="start-btn">
-            <a href="game.html">START!</a>
-          </button>
+          <div>
+            <button id="difficulty-btn" onclick="getEasyDiff()">
+              <a href="easy-diff.html">Easy</a>
+            </button>
+            <button id="difficulty-btn" onclick="getMediumDiff()">
+              <a href="medium-diff.html">Medium</a>
+            </button>
+            <button id="difficulty-btn" onclick="getHardDiff()">
+              <a href="hard-diff.html">Hard</a>
+            </button>
+          </div>
         </div>
         <img src="images/ginger-cat-menu.png" alt="ginger cat" />
       </div>
